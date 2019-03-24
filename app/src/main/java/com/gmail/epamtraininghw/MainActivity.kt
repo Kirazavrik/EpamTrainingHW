@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         const val INTENT_FILTER_ACTION = "com.gmail.wr30mg.MESSAGE"
     }
 
-    private var filter = IntentFilter()
+    private val filter = IntentFilter()
     private lateinit var serviceIntent: Intent
-    private var broadcastReceiver: BroadcastReceiver = SimpleReceiver()
+    private val broadcastReceiver: BroadcastReceiver = SimpleReceiver()
     private var simpleFragment: Fragment = SimpleFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +28,7 @@ class MainActivity : AppCompatActivity() {
             simpleFragment = supportFragmentManager.getFragment(savedInstanceState, FRAGMENT_NAME)!!
         }
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragmentView, simpleFragment)
-            .commit()
+        startFragment()
 
         serviceIntent = Intent(this, SimpleService::class.java)
 
@@ -61,6 +58,13 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
 
         unregisterReceiver(broadcastReceiver)
+    }
+
+    private fun startFragment() {
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragmentView, simpleFragment)
+            .commit()
     }
 
 }

@@ -8,6 +8,10 @@ import android.util.Log
 import android.widget.TextView
 
 class SimpleReceiver : BroadcastReceiver() {
+    companion object {
+        private const val MESSAGE = "message"
+    }
+
     lateinit var messageTextView: TextView
 
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -15,7 +19,7 @@ class SimpleReceiver : BroadcastReceiver() {
         messageTextView = activity.findViewById(R.id.incomingMessageTextView)
 
         if (intent!!.extras != null) {
-            val message: String = intent.getStringExtra("message")
+            val message: String = intent.getStringExtra(MESSAGE)
             messageTextView.text = message
         } else {
             Log.e("TAG", "Empty bundle on BroadcastReceiver")

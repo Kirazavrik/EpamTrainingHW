@@ -23,7 +23,7 @@
         <receiver
                 android:name=".SimpleReceiver"
                 android:enabled="true"
-                android:exported="true">
+                android:exported="false">
         </receiver>
 
     </application>

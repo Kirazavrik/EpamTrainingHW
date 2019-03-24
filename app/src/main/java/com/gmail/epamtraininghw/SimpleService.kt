@@ -8,9 +8,10 @@ class SimpleService : IntentService("Simple service") {
     companion object {
         private const val MESSAGE = "Simple Message"
         private const val TAG = "Error"
+        private const val ACTION = "com.gmail.wr30mg.MESSAGE"
     }
 
-    private var broadcastIntent = Intent("com.gmail.wr30mg.MESSAGE")
+    private var broadcastIntent = Intent(ACTION)
 
     override fun onHandleIntent(intent: Intent?) {
         try {
