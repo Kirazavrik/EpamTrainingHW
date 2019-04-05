@@ -9,9 +9,10 @@ class SimpleService : IntentService("Simple service") {
         private const val MESSAGE = "Simple Message"
         private const val TAG = "Error"
         private const val ACTION = "com.gmail.wr30mg.MESSAGE"
+        private const val MESSAGE_TAG = "message"
     }
 
-    private var broadcastIntent = Intent(ACTION)
+    private val broadcastIntent = Intent(ACTION)
 
     override fun onHandleIntent(intent: Intent?) {
         try {
@@ -21,7 +22,7 @@ class SimpleService : IntentService("Simple service") {
             Thread.currentThread().interrupt()
         }
 
-        broadcastIntent.putExtra("message", MESSAGE)
+        broadcastIntent.putExtra(MESSAGE_TAG, MESSAGE)
         sendBroadcast(broadcastIntent)
 
     }

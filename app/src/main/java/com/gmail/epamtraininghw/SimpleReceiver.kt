@@ -14,11 +14,11 @@ class SimpleReceiver : BroadcastReceiver() {
 
     lateinit var messageTextView: TextView
 
-    override fun onReceive(context: Context?, intent: Intent?) {
+    override fun onReceive(context: Context?, intent: Intent) {
         val activity: Activity = context as Activity
         messageTextView = activity.findViewById(R.id.incomingMessageTextView)
 
-        if (intent!!.extras != null) {
+        if (intent.extras != null) {
             val message: String = intent.getStringExtra(MESSAGE)
             messageTextView.text = message
         } else {
