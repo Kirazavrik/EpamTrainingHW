@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EpamTrainingHW</string>
+    <string name="available_lessons_text">Available Lessons</string>
+    <string name="git_theme">Git</string>
+
+    <string name="mentor_name_artem">Artem</string>
 </resources>
